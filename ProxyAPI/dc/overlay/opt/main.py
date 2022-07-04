@@ -57,7 +57,7 @@ async def readSearchQuery(request: Request):
         
         
         # here I do not get forward, as the JWT Token got from evi.dev.elucidate.co/login gives the error "invalid JWT Token" 
-        # when trying to curl the get request
+        # when trying to curl the get request --> probably the recieved token is somehow related to another cookie, or the session in another way
         print(response)
         
         # if the response is "institution not found, query the ticket"
