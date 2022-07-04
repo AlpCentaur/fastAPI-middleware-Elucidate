@@ -2,7 +2,10 @@
 
 ## How to start the containers
 
-go to the directory dc/compose and issue 
+go to the directory 
+    dc/compose 
+    
+and issue 
 
     docker-compose up
 
@@ -14,7 +17,7 @@ Or for documentation of the api, go to
     localhost:8000/docs
 
 
-The server is located in the directory
+The server is located under
 
     /dc/overlay/opt/main.py
     
