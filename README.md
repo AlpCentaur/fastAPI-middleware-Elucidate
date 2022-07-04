@@ -3,6 +3,7 @@
 ## How to start the containers
 
 go to the directory 
+
     dc/compose 
     
 and issue 
