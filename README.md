@@ -4,7 +4,7 @@
 
 go to the directory 
 
-    dc/compose 
+    ProxyAPI/dc/compose 
     
 and issue 
 
