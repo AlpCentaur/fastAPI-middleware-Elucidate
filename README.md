@@ -12,3 +12,13 @@ Then go to localhost:8000
 Or for documentation of the api, go to 
 
     localhost:8000/docs
+
+
+The server is located in the directory
+
+    /dc/overlay/opt/main.py
+    
+This means, with the running docker container, and 
+by modifying the dockerfile uvicorn command to reload,
+you could change the code on your base system in the graphical
+editor of your choice
