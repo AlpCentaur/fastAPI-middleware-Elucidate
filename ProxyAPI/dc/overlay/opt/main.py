@@ -2,6 +2,8 @@ from fastapi import FastAPI, Response, Request
 
 from passlib.context import CryptContext
 
+import requests
+
 app = FastAPI()
 
 
@@ -33,19 +35,53 @@ async def readSearchQuery(request: Request):
     print('the verification gives:')
     print(verify_password(token, hashedBearerToken))
     
+    
     # get the fullSearch parameter
     
     params = request.query_params
     
-    fullSearch = params['fullSearch']
+    fullSearchParam = params['fullSearch']
     print('the param:')
-    print(fullSearch)
+    print(fullSearchParam)
     
-    
+'''   
     if verify_password(token, hashedBearerToken) == True:
         
+        myHeaders = {"ACCEPT": "application/ld+json", 'Authorization': 'Bearer ' + token. 'Content-Type': 'application/ld+json'}
+        
+        # make the request to the elucidate api
+        
+        url = 'https://api.dev.elucidate.co/institutions?fullSearch=XXX'
+        
+        response = requests.get(url, headers = myHeaders)
         
         
+        # here I do not get forward, as the JWT Token got from evi.dev.elucidate.co/login gives the error "invalid JWT Token" 
+        # when trying to curl the get request
+        print(response)
+        
+        # if the response is "institution not found, query the ticket"
+        
+        
+        url = 'https://api.dev.elucidate.co/tickets'
+        
+        from datetime import date, datetime
+        today = date.today()
+        time = datetime.now()
+        
+        myData = {  'project': 'projects/2a9caad1-19c7-4340-949f-30b81a8a043e',  
+        'title': 'missing Institution ' + fullSearchParam,  
+        'description': 'add Institution ' + fullSearchParam,  
+        'createdAt': today + time,  
+        'updatedAt': today + time 
+        }
+        
+        
+        
+        response = requests.post(url, json = myData, headers = myHeaders)
+
+        print(response.text)
+'''        
     
     
     
