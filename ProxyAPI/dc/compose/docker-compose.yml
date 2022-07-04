@@ -1,0 +1,20 @@
+version: '3.1'
+        
+        
+services:
+                
+        elucidate-api-middleware:
+                        
+                build: ../build/elucidate-api-middleware
+                container_name: elucidate-api-middleware-container
+                restart: always
+                volumes:
+                        - ../overlay/opt:/opt
+                networks:
+                        - elucidate-api-middleware-NET
+                ports:
+                        - "127.0.0.1:8000:8000"
+
+networks:
+        elucidate-api-middleware-NET:
+                driver: bridge
